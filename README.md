@@ -5,10 +5,7 @@ A simple web-based application for managing students, professors, and courses in
 
 ## Features
 
-- User authentication with JWT
 - CRUD operations for students, professors, and courses
-- User registration and login
-- Protected routes accessible only to authenticated users
 
 ## Prerequisites
 
@@ -69,9 +66,7 @@ A simple web-based application for managing students, professors, and courses in
 
 1. Open your browser and go to `http://127.0.0.1:8001`.
 
-2. Register a new user and log in.
-
-3. After logging in, you can access the management system to add, update, or delete students, professors, and courses.
+2. You can access the management system to add, update, or delete students, professors, and courses.
 
 ## Project Structure
 
@@ -99,7 +94,6 @@ university-management-system/
 │   │   ├── students.js
 │   │   ├── professors.js
 │   │   ├── courses.js
-│   │   └── auth.js
 └── requirements.txt
 ```
 
