@@ -1,0 +1,7 @@
+# Ignore database file
+*.db
+
+# Other common ignores
+__pycache__/
+*.pyc
+.env
