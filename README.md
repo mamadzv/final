@@ -97,14 +97,6 @@ university-management-system/
 └── requirements.txt
 ```
 
-## Environment Variables
-
-Create a `.env` file in the root directory to store environment variables like the secret key for JWT.
-
-```
-SECRET_KEY=your_secret_key
-```
-
 ## Contributing
 
 Contributions are welcome! Please open an issue or submit a pull request.
