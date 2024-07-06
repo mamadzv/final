@@ -1,5 +1,5 @@
-from pydantic import BaseModel
-from typing import List, Optional
+from pydantic import BaseModel, validator
+from typing import List
 
 class StudentBase(BaseModel):
     first_name: str
@@ -15,10 +15,13 @@ class StudentBase(BaseModel):
     department: str
     major: str
     married: bool
-    course_ids: List[int]
-    professor_ids: List[int]
+    course_ids: str
+    professor_ids: str
 
 class StudentCreate(StudentBase):
+    pass
+
+class StudentUpdate(StudentBase):
     pass
 
 class Student(StudentBase):
@@ -39,9 +42,12 @@ class ProfessorBase(BaseModel):
     postal_code: str
     cphone: str
     hphone: str
-    lcourse_ids: List[int]
+    lcourse_ids: str
 
 class ProfessorCreate(ProfessorBase):
+    pass
+
+class ProfessorUpdate(ProfessorBase):
     pass
 
 class Professor(ProfessorBase):
@@ -56,6 +62,9 @@ class CourseBase(BaseModel):
     credit: int
 
 class CourseCreate(CourseBase):
+    pass
+
+class CourseUpdate(CourseBase):
     pass
 
 class Course(CourseBase):

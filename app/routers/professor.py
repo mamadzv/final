@@ -21,6 +21,13 @@ def read_professor(lid: int, db: Session = Depends(database.get_db)):
         raise HTTPException(status_code=404, detail="Professor not found")
     return db_professor
 
+@router.put("/{lid}", response_model=schemas.Professor)
+def update_professor(lid: int, professor: schemas.ProfessorUpdate, db: Session = Depends(database.get_db)):
+    db_professor = crud.get_professor(db, lid=lid)
+    if db_professor is None:
+        raise HTTPException(status_code=404, detail="Professor not found")
+    return crud.update_professor(db=db, lid=lid, professor=professor)
+
 @router.delete("/{lid}", response_model=schemas.Professor)
 def delete_professor(lid: int, db: Session = Depends(database.get_db)):
     db_professor = crud.get_professor(db, lid=lid)

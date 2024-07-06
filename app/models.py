@@ -18,8 +18,8 @@ class Student(Base):
     department = Column(String)
     major = Column(String)
     married = Column(Boolean)
-    course_ids = Column(String)
-    professor_ids = Column(String)
+    course_ids = Column(String)  # Store as comma-separated string
+    professor_ids = Column(String)  # Store as comma-separated string
 
 class Professor(Base):
     __tablename__ = "professors"
@@ -36,7 +36,7 @@ class Professor(Base):
     postal_code = Column(String)
     cphone = Column(String)
     hphone = Column(String)
-    lcourse_ids = Column(String)
+    lcourse_ids = Column(String)  # Store as comma-separated string
 
 class Course(Base):
     __tablename__ = "courses"

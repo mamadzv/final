@@ -21,6 +21,13 @@ def read_course(cid: int, db: Session = Depends(database.get_db)):
         raise HTTPException(status_code=404, detail="Course not found")
     return db_course
 
+@router.put("/{cid}", response_model=schemas.Course)
+def update_course(cid: int, course: schemas.CourseUpdate, db: Session = Depends(database.get_db)):
+    db_course = crud.get_course(db, cid=cid)
+    if db_course is None:
+        raise HTTPException(status_code=404, detail="Course not found")
+    return crud.update_course(db=db, cid=cid, course=course)
+
 @router.delete("/{cid}", response_model=schemas.Course)
 def delete_course(cid: int, db: Session = Depends(database.get_db)):
     db_course = crud.get_course(db, cid=cid)

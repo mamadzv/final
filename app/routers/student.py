@@ -21,6 +21,13 @@ def read_student(stid: int, db: Session = Depends(database.get_db)):
         raise HTTPException(status_code=404, detail="Student not found")
     return db_student
 
+@router.put("/{stid}", response_model=schemas.Student)
+def update_student(stid: int, student: schemas.StudentUpdate, db: Session = Depends(database.get_db)):
+    db_student = crud.get_student(db, stid=stid)
+    if db_student is None:
+        raise HTTPException(status_code=404, detail="Student not found")
+    return crud.update_student(db=db, stid=stid, student=student)
+
 @router.delete("/{stid}", response_model=schemas.Student)
 def delete_student(stid: int, db: Session = Depends(database.get_db)):
     db_student = crud.get_student(db, stid=stid)
