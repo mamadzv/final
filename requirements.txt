@@ -1,5 +1,6 @@
 fastapi
+pathlib
 uvicorn
 sqlalchemy
-sqlite3
 pydantic
+python-multipart
